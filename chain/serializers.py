@@ -1,6 +1,7 @@
 from typing import Type, Any
 
 from rest_framework import serializers
+from rest_framework.utils.serializer_helpers import ReturnDict
 
 from chain.models import TradeUnit, Contact, Product
 
@@ -88,7 +89,7 @@ class RetailSerializer(serializers.ModelSerializer):
         """
         return obj.get_unit_type_display()
 
-    def get_provider(self, obj):
+    def get_provider(self, obj) -> ReturnDict | None:
         """
         Method defines recursive traversal of nested entities
         """
