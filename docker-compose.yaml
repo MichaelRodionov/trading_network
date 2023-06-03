@@ -9,10 +9,10 @@ services:
       POSTGRES_DB: trading_network
     ports:
       - "5432:5432"
-    container_name: events_db
+    container_name: retail_db
     restart: always
     healthcheck:
-      test: pg_isready -U postgres -d make_event
+      test: pg_isready -U postgres -d trading_network
       interval: 3s
       timeout: 3s
       retries: 3
@@ -44,4 +44,4 @@ services:
         condition: service_completed_successfully
     volumes:
       - ./:/retail_app/
-      - .static:/event_app/static
+      - .static:/retail_app/static
