@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "trading-network"
+version = "0.1.0"
+description = ""
+authors = ["Michael Rodionov <rodionovspb9618@mail.ru>"]
+readme = "README.md"
+packages = [{include = "trading_network"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.1"
+djangorestframework = "^3.14.0"
+django-environ = "^0.10.0"
+psycopg2-binary = "^2.9.6"
+django-filter = "^23.2"
+drf-spectacular = "^0.26.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
