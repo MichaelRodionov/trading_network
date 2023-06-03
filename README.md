@@ -37,7 +37,9 @@ You can send requests to API by http://localhost:8000
 ./manage.py createsuperuser
 ```
 Authenticate superuser in Django Admin panel by link:
-http://localhost:8000/admin/
+http://localhost:8000/admin/   
+Example of customized admin panel, where you can see hierarchy level of any link in your trading network 
+![img_1.png](img_1.png)
 ## OpenAPI documentation
 You can open API documentation by GET request to the API container:   
 - http://localhost:8000/schema/redoc/
