@@ -41,7 +41,7 @@ class Contact(models.Model):
     )
 
     def __str__(self):
-        return f'{self.country}, {self.city}, {self.street}, {self.number}'
+        return f'{self.country}, {self.city}'
 
     class Meta:
         verbose_name = 'Contact'

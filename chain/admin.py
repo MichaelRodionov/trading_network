@@ -10,7 +10,7 @@ from chain.serializers import ProductSerializer
 # retail admin model
 @admin.register(TradeUnit)
 class RetailAdmin(admin.ModelAdmin):
-    list_display = ('title', 'contact', 'products_', 'provider_', 'debt', 'unit_type')
+    list_display = ('title', 'contact', 'products_', 'provider_', 'debt', 'unit_type', 'level')
     list_filter = ('contact__country', 'contact__city')
     actions = ['reset_debt']
     readonly_fields = ('level',)
