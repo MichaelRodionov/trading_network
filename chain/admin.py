@@ -10,6 +10,16 @@ from chain.serializers import ProductSerializer
 # retail admin model
 @admin.register(TradeUnit)
 class RetailAdmin(admin.ModelAdmin):
+    """
+    Model representing retail admin panel
+
+    Attrs:
+        - list_display: defines collection of fields to display
+        - list_filter: defines collection of fields to filter
+        - actions: defines custom admin action
+        - readonly_fields: defines collection with fields forbidden for editing
+        - fieldsets: defines custom subsections
+    """
     list_display = ('title', 'contact', 'products_', 'provider_', 'debt', 'unit_type', 'level')
     list_filter = ('contact__country', 'contact__city')
     actions = ['reset_debt']
@@ -36,6 +46,9 @@ class RetailAdmin(admin.ModelAdmin):
 
     @staticmethod
     def products_(obj):
+        """
+        Method to represent entity as a link
+        """
         products = ProductSerializer(obj.products, many=True).data
         product_list = []
         for i, product in enumerate(products):
@@ -45,6 +58,9 @@ class RetailAdmin(admin.ModelAdmin):
         return format_html("<br>".join(product_list))
 
     def provider_(self, obj):
+        """
+        Method to represent entity as a link
+        """
         if obj.provider:
             url = reverse('admin:chain_tradeunit_change', args=[obj.provider.id])
             return format_html('<a href="{}">{}</a>', url, obj.provider.title)
@@ -57,6 +73,14 @@ class RetailAdmin(admin.ModelAdmin):
 # contact admin model
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
+    """
+    Model representing contact admin panel
+
+    Attrs:
+        - list_display: defines collection of fields to display
+        - list_filter: defines collection of fields to filter
+        - fieldsets: defines custom subsections
+    """
     list_display = ('email', 'country', 'city', 'street', 'number')
     list_filter = ('country', 'city')
 
@@ -74,6 +98,14 @@ class ContactAdmin(admin.ModelAdmin):
 # product admin model
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Model representing product admin panel
+
+    Attrs:
+        - list_display: defines collection of fields to display
+        - list_filter: defines collection of fields to filter
+        - fieldsets: defines custom subsections
+    """
     list_display = ('title', 'model', 'release', 'price')
     list_filter = ('model',)
 
