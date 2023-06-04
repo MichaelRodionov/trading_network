@@ -22,7 +22,7 @@ OpenAPI documentation
 Create local .env file with the next data:  
 ``` python
 SECRET_KEY='your django key'
-DATABASE_URL=postgres://postgres:postgres@db/make_event
+DATABASE_URL=postgres://postgres:postgres@db/trading_network
 DEBUG=False
 ```
 Run API, DB and Migrations containers by:
